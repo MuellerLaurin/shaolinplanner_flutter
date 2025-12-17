@@ -54,6 +54,8 @@ dependencies:
   flutter_adaptive_scaffold: ^0.3.3+1
   slang: ^4.0.0
   slang_flutter: ^4.0.0
+  flutter_localizations:
+    sdk: flutter
 
 
 dev_dependencies:

@@ -3,6 +3,7 @@ import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:shaolin_planner_new/features/auth/providers/auth_provider.dart';
+import 'package:shaolin_planner_new/i18n/strings.g.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class MainScaffold extends ConsumerStatefulWidget {
@@ -24,21 +25,21 @@ class _MainScaffoldState extends ConsumerState<MainScaffold> {
           _selectedIndex = index;
         });
       },
-      destinations: const [
+      destinations: [
         NavigationDestination(
           icon: Icon(Icons.dashboard_outlined),
           selectedIcon: Icon(Icons.dashboard),
-          label: 'Dashboard',
+          label: t.nav.dashboard,
         ),
         NavigationDestination(
           icon: Icon(Icons.self_improvement_outlined), // Rituals icon
           selectedIcon: Icon(Icons.self_improvement),
-          label: 'Rituals',
+          label: t.nav.rituals,
         ),
         NavigationDestination(
           icon: Icon(Icons.settings_outlined),
           selectedIcon: Icon(Icons.settings),
-          label: 'Settings',
+          label: t.nav.settings,
         ),
       ],
       body: (context) => _buildBody(_selectedIndex),
@@ -69,20 +70,20 @@ class _DashboardPage extends ConsumerWidget {
     final currentUserAsync = ref.watch(currentUserProvider);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Dashboard')),
+      appBar: AppBar(title: Text(t.nav.dashboard)),
       body: Center(
         child: currentUserAsync.when(
           data: (user) => Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('Hello ${user?.email ?? 'User'}'),
+              Text('${t.auth.welcome} ${user?.email ?? 'User'}'),
               if (user?.planId != null) Text('Plan ID: ${user!.planId}'),
               const SizedBox(height: 20),
               FilledButton(
                 onPressed: () {
                   Supabase.instance.client.auth.signOut();
                 },
-                child: const Text('Sign Out'),
+                child: Text(t.auth.logout),
               ),
             ],
           ),

@@ -1,0 +1,21 @@
+{
+  "common": {
+    "save": "Speichern",
+    "cancel": "Abbrechen",
+    "delete": "Löschen",
+    "edit": "Bearbeiten",
+    "loading": "Laden..."
+  },
+  "auth": {
+    "login": "Anmelden",
+    "email": "E-Mail",
+    "password": "Passwort",
+    "logout": "Abmelden",
+    "welcome": "Willkommen"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "rituals": "Rituale",
+    "settings": "Einstellungen"
+  }
+}

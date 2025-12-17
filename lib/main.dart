@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:shaolin_planner_new/core/presentation/main_scaffold.dart';
+import 'package:shaolin_planner_new/core/providers/locale_provider.dart';
 import 'package:shaolin_planner_new/core/providers/theme_provider.dart';
 import 'package:shaolin_planner_new/features/auth/presentation/login_screen.dart';
 import 'package:shaolin_planner_new/features/auth/providers/auth_provider.dart';
+import 'package:shaolin_planner_new/i18n/strings.g.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,7 +22,7 @@ void main() async {
     anonKey: dotenv.env['NEXT_PUBLIC_SUPABASE_ANON_KEY']!,
   );
 
-  runApp(const ProviderScope(child: MyApp()));
+  runApp(ProviderScope(child: TranslationProvider(child: const MyApp())));
 }
 
 class MyApp extends ConsumerWidget {
@@ -27,15 +30,21 @@ class MyApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    // Watch providers
     final themeMode = ref.watch(themeProvider);
     final lightTheme = ref.watch(lightThemeProvider);
     final darkTheme = ref.watch(darkThemeProvider);
+    final currentLocale = ref.watch(localeProvider);
 
     return MaterialApp(
       title: 'Shaolin Planner',
+      debugShowCheckedModeBanner: false,
       theme: lightTheme,
       darkTheme: darkTheme,
       themeMode: themeMode,
+      locale: currentLocale.flutterLocale,
+      supportedLocales: AppLocaleUtils.supportedLocales,
+      localizationsDelegates: GlobalMaterialLocalizations.delegates,
       home: const AuthGate(),
     );
   }

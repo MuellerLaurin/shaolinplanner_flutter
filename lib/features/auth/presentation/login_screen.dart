@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shaolin_planner_new/core/providers/supabase_provider.dart';
+import 'package:shaolin_planner_new/i18n/strings.g.dart';
 
 class LoginScreen extends ConsumerStatefulWidget {
   const LoginScreen({super.key});
@@ -48,20 +49,20 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Login')),
+      appBar: AppBar(title: Text(t.auth.login)),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
             TextField(
               controller: _emailController,
-              decoration: const InputDecoration(labelText: 'Email'),
+              decoration: InputDecoration(labelText: t.auth.email),
               keyboardType: TextInputType.emailAddress,
             ),
             const SizedBox(height: 16),
             TextField(
               controller: _passwordController,
-              decoration: const InputDecoration(labelText: 'Password'),
+              decoration: InputDecoration(labelText: t.auth.password),
               obscureText: true,
             ),
             const SizedBox(height: 24),
@@ -69,7 +70,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
               onPressed: _isLoading ? null : _signIn,
               child: _isLoading
                   ? const CircularProgressIndicator()
-                  : const Text('Login'),
+                  : Text(t.auth.login),
             ),
           ],
         ),

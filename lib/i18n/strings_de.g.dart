@@ -1,0 +1,138 @@
+///
+/// Generated file. Do not edit.
+///
+// coverage:ignore-file
+// ignore_for_file: type=lint, unused_import
+// dart format off
+
+part of 'strings.g.dart';
+
+// Path: <root>
+typedef TranslationsDe = Translations; // ignore: unused_element
+class Translations with BaseTranslations<AppLocale, Translations> {
+	/// Returns the current translations of the given [context].
+	///
+	/// Usage:
+	/// final t = Translations.of(context);
+	static Translations of(BuildContext context) => InheritedLocaleData.of<AppLocale, Translations>(context).translations;
+
+	/// You can call this constructor and build your own translation instance of this locale.
+	/// Constructing via the enum [AppLocale.build] is preferred.
+	Translations({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver, TranslationMetadata<AppLocale, Translations>? meta})
+		: assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
+		  $meta = meta ?? TranslationMetadata(
+		    locale: AppLocale.de,
+		    overrides: overrides ?? {},
+		    cardinalResolver: cardinalResolver,
+		    ordinalResolver: ordinalResolver,
+		  ) {
+		$meta.setFlatMapFunction(_flatMapFunction);
+	}
+
+	/// Metadata for the translations of <de>.
+	@override final TranslationMetadata<AppLocale, Translations> $meta;
+
+	/// Access flat map
+	dynamic operator[](String key) => $meta.getTranslation(key);
+
+	late final Translations _root = this; // ignore: unused_field
+
+	Translations $copyWith({TranslationMetadata<AppLocale, Translations>? meta}) => Translations(meta: meta ?? this.$meta);
+
+	// Translations
+	late final TranslationsCommonDe common = TranslationsCommonDe._(_root);
+	late final TranslationsAuthDe auth = TranslationsAuthDe._(_root);
+	late final TranslationsNavDe nav = TranslationsNavDe._(_root);
+}
+
+// Path: common
+class TranslationsCommonDe {
+	TranslationsCommonDe._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// de: 'Speichern'
+	String get save => 'Speichern';
+
+	/// de: 'Abbrechen'
+	String get cancel => 'Abbrechen';
+
+	/// de: 'Löschen'
+	String get delete => 'Löschen';
+
+	/// de: 'Bearbeiten'
+	String get edit => 'Bearbeiten';
+
+	/// de: 'Laden...'
+	String get loading => 'Laden...';
+}
+
+// Path: auth
+class TranslationsAuthDe {
+	TranslationsAuthDe._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// de: 'Anmelden'
+	String get login => 'Anmelden';
+
+	/// de: 'E-Mail'
+	String get email => 'E-Mail';
+
+	/// de: 'Passwort'
+	String get password => 'Passwort';
+
+	/// de: 'Abmelden'
+	String get logout => 'Abmelden';
+
+	/// de: 'Willkommen'
+	String get welcome => 'Willkommen';
+}
+
+// Path: nav
+class TranslationsNavDe {
+	TranslationsNavDe._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// de: 'Dashboard'
+	String get dashboard => 'Dashboard';
+
+	/// de: 'Rituale'
+	String get rituals => 'Rituale';
+
+	/// de: 'Einstellungen'
+	String get settings => 'Einstellungen';
+}
+
+/// The flat map containing all translations for locale <de>.
+/// Only for edge cases! For simple maps, use the map function of this library.
+///
+/// The Dart AOT compiler has issues with very large switch statements,
+/// so the map is split into smaller functions (512 entries each).
+extension on Translations {
+	dynamic _flatMapFunction(String path) {
+		return switch (path) {
+			'common.save' => 'Speichern',
+			'common.cancel' => 'Abbrechen',
+			'common.delete' => 'Löschen',
+			'common.edit' => 'Bearbeiten',
+			'common.loading' => 'Laden...',
+			'auth.login' => 'Anmelden',
+			'auth.email' => 'E-Mail',
+			'auth.password' => 'Passwort',
+			'auth.logout' => 'Abmelden',
+			'auth.welcome' => 'Willkommen',
+			'nav.dashboard' => 'Dashboard',
+			'nav.rituals' => 'Rituale',
+			'nav.settings' => 'Einstellungen',
+			_ => null,
+		};
+	}
+}
