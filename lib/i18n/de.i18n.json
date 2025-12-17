@@ -30,6 +30,13 @@
     "title": "Rituale",
     "no_data": "Keine Rituale gefunden.",
     "duration_min": "Min.",
-    "error_loading": "Fehler beim Laden der Rituale."
+    "error_loading": "Fehler beim Laden der Rituale.",
+    "form": {
+        "duration_label": "Dauer: $min Min.",
+        "save": "Speichern"
+    },
+    "delete": {
+        "confirm_title": "Ritual löschen?"
+    }
   }
 }

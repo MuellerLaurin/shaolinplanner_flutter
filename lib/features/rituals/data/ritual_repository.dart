@@ -23,14 +23,17 @@ class RitualRepository {
 
   // Placeholders for future CRUD operations
   Future<void> createRitual(Ritual ritual) async {
-    // TODO: Implement create
+    await _client.from('rituals').insert(ritual.toJson());
   }
 
   Future<void> updateRitual(Ritual ritual) async {
-    // TODO: Implement update
+    await _client
+        .from('rituals')
+        .update(ritual.toJson())
+        .eq('ritual_id', ritual.id);
   }
 
   Future<void> deleteRitual(String ritualId) async {
-    // TODO: Implement delete
+    await _client.from('rituals').delete().eq('ritual_id', ritualId);
   }
 }

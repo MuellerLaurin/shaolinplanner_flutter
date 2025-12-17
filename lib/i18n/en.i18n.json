@@ -30,6 +30,13 @@
     "title": "Rituals",
     "no_data": "No rituals found.",
     "duration_min": "Min.",
-    "error_loading": "Error loading rituals."
+    "error_loading": "Error loading rituals.",
+    "form": {
+        "duration_label": "Duration: $min Min.",
+        "save": "Save"
+    },
+    "delete": {
+        "confirm_title": "Delete ritual?"
+    }
   }
 }

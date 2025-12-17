@@ -5,20 +5,16 @@
 // ignore_for_file: type=lint, unused_import
 // dart format off
 
-part of 'strings.g.dart';
+import 'package:flutter/widgets.dart';
+import 'package:intl/intl.dart';
+import 'package:slang/generated.dart';
+import 'strings.g.dart';
 
 // Path: <root>
-typedef TranslationsEn = Translations; // ignore: unused_element
-class Translations with BaseTranslations<AppLocale, Translations> {
-	/// Returns the current translations of the given [context].
-	///
-	/// Usage:
-	/// final t = Translations.of(context);
-	static Translations of(BuildContext context) => InheritedLocaleData.of<AppLocale, Translations>(context).translations;
-
+class TranslationsEn with BaseTranslations<AppLocale, Translations> implements Translations {
 	/// You can call this constructor and build your own translation instance of this locale.
 	/// Constructing via the enum [AppLocale.build] is preferred.
-	Translations({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver, TranslationMetadata<AppLocale, Translations>? meta})
+	TranslationsEn({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver, TranslationMetadata<AppLocale, Translations>? meta})
 		: assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
 		  $meta = meta ?? TranslationMetadata(
 		    locale: AppLocale.en,
@@ -33,132 +29,110 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 	@override final TranslationMetadata<AppLocale, Translations> $meta;
 
 	/// Access flat map
-	dynamic operator[](String key) => $meta.getTranslation(key);
+	@override dynamic operator[](String key) => $meta.getTranslation(key);
 
-	late final Translations _root = this; // ignore: unused_field
+	late final TranslationsEn _root = this; // ignore: unused_field
 
-	Translations $copyWith({TranslationMetadata<AppLocale, Translations>? meta}) => Translations(meta: meta ?? this.$meta);
+	@override 
+	TranslationsEn $copyWith({TranslationMetadata<AppLocale, Translations>? meta}) => TranslationsEn(meta: meta ?? this.$meta);
 
 	// Translations
-	late final TranslationsCommonEn common = TranslationsCommonEn._(_root);
-	late final TranslationsAuthEn auth = TranslationsAuthEn._(_root);
-	late final TranslationsNavEn nav = TranslationsNavEn._(_root);
-	late final TranslationsSettingsEn settings = TranslationsSettingsEn._(_root);
-	late final TranslationsRitualsEn rituals = TranslationsRitualsEn._(_root);
+	@override late final _TranslationsCommonEn common = _TranslationsCommonEn._(_root);
+	@override late final _TranslationsAuthEn auth = _TranslationsAuthEn._(_root);
+	@override late final _TranslationsNavEn nav = _TranslationsNavEn._(_root);
+	@override late final _TranslationsSettingsEn settings = _TranslationsSettingsEn._(_root);
+	@override late final _TranslationsRitualsEn rituals = _TranslationsRitualsEn._(_root);
 }
 
 // Path: common
-class TranslationsCommonEn {
-	TranslationsCommonEn._(this._root);
+class _TranslationsCommonEn implements TranslationsCommonDe {
+	_TranslationsCommonEn._(this._root);
 
-	final Translations _root; // ignore: unused_field
+	final TranslationsEn _root; // ignore: unused_field
 
 	// Translations
-
-	/// en: 'Save'
-	String get save => 'Save';
-
-	/// en: 'Cancel'
-	String get cancel => 'Cancel';
-
-	/// en: 'Delete'
-	String get delete => 'Delete';
-
-	/// en: 'Edit'
-	String get edit => 'Edit';
-
-	/// en: 'Loading...'
-	String get loading => 'Loading...';
+	@override String get save => 'Save';
+	@override String get cancel => 'Cancel';
+	@override String get delete => 'Delete';
+	@override String get edit => 'Edit';
+	@override String get loading => 'Loading...';
 }
 
 // Path: auth
-class TranslationsAuthEn {
-	TranslationsAuthEn._(this._root);
+class _TranslationsAuthEn implements TranslationsAuthDe {
+	_TranslationsAuthEn._(this._root);
 
-	final Translations _root; // ignore: unused_field
+	final TranslationsEn _root; // ignore: unused_field
 
 	// Translations
-
-	/// en: 'Login'
-	String get login => 'Login';
-
-	/// en: 'Email'
-	String get email => 'Email';
-
-	/// en: 'Password'
-	String get password => 'Password';
-
-	/// en: 'Logout'
-	String get logout => 'Logout';
-
-	/// en: 'Welcome'
-	String get welcome => 'Welcome';
+	@override String get login => 'Login';
+	@override String get email => 'Email';
+	@override String get password => 'Password';
+	@override String get logout => 'Logout';
+	@override String get welcome => 'Welcome';
 }
 
 // Path: nav
-class TranslationsNavEn {
-	TranslationsNavEn._(this._root);
+class _TranslationsNavEn implements TranslationsNavDe {
+	_TranslationsNavEn._(this._root);
 
-	final Translations _root; // ignore: unused_field
+	final TranslationsEn _root; // ignore: unused_field
 
 	// Translations
-
-	/// en: 'Dashboard'
-	String get dashboard => 'Dashboard';
-
-	/// en: 'Rituals'
-	String get rituals => 'Rituals';
-
-	/// en: 'Settings'
-	String get settings => 'Settings';
+	@override String get dashboard => 'Dashboard';
+	@override String get rituals => 'Rituals';
+	@override String get settings => 'Settings';
 }
 
 // Path: settings
-class TranslationsSettingsEn {
-	TranslationsSettingsEn._(this._root);
+class _TranslationsSettingsEn implements TranslationsSettingsDe {
+	_TranslationsSettingsEn._(this._root);
 
-	final Translations _root; // ignore: unused_field
+	final TranslationsEn _root; // ignore: unused_field
 
 	// Translations
-
-	/// en: 'Settings'
-	String get title => 'Settings';
-
-	/// en: 'Language'
-	String get language => 'Language';
-
-	/// en: 'Appearance'
-	String get themeMode => 'Appearance';
-
-	/// en: 'Light'
-	String get light => 'Light';
-
-	/// en: 'Dark'
-	String get dark => 'Dark';
-
-	/// en: 'System'
-	String get system => 'System';
+	@override String get title => 'Settings';
+	@override String get language => 'Language';
+	@override String get themeMode => 'Appearance';
+	@override String get light => 'Light';
+	@override String get dark => 'Dark';
+	@override String get system => 'System';
 }
 
 // Path: rituals
-class TranslationsRitualsEn {
-	TranslationsRitualsEn._(this._root);
+class _TranslationsRitualsEn implements TranslationsRitualsDe {
+	_TranslationsRitualsEn._(this._root);
 
-	final Translations _root; // ignore: unused_field
+	final TranslationsEn _root; // ignore: unused_field
 
 	// Translations
+	@override String get title => 'Rituals';
+	@override String get no_data => 'No rituals found.';
+	@override String get duration_min => 'Min.';
+	@override String get error_loading => 'Error loading rituals.';
+	@override late final _TranslationsRitualsFormEn form = _TranslationsRitualsFormEn._(_root);
+	@override late final _TranslationsRitualsDeleteEn delete = _TranslationsRitualsDeleteEn._(_root);
+}
 
-	/// en: 'Rituals'
-	String get title => 'Rituals';
+// Path: rituals.form
+class _TranslationsRitualsFormEn implements TranslationsRitualsFormDe {
+	_TranslationsRitualsFormEn._(this._root);
 
-	/// en: 'No rituals found.'
-	String get no_data => 'No rituals found.';
+	final TranslationsEn _root; // ignore: unused_field
 
-	/// en: 'Min.'
-	String get duration_min => 'Min.';
+	// Translations
+	@override String duration_label({required Object min}) => 'Duration: ${min} Min.';
+	@override String get save => 'Save';
+}
 
-	/// en: 'Error loading rituals.'
-	String get error_loading => 'Error loading rituals.';
+// Path: rituals.delete
+class _TranslationsRitualsDeleteEn implements TranslationsRitualsDeleteDe {
+	_TranslationsRitualsDeleteEn._(this._root);
+
+	final TranslationsEn _root; // ignore: unused_field
+
+	// Translations
+	@override String get confirm_title => 'Delete ritual?';
 }
 
 /// The flat map containing all translations for locale <en>.
@@ -166,7 +140,7 @@ class TranslationsRitualsEn {
 ///
 /// The Dart AOT compiler has issues with very large switch statements,
 /// so the map is split into smaller functions (512 entries each).
-extension on Translations {
+extension on TranslationsEn {
 	dynamic _flatMapFunction(String path) {
 		return switch (path) {
 			'common.save' => 'Save',
@@ -192,6 +166,9 @@ extension on Translations {
 			'rituals.no_data' => 'No rituals found.',
 			'rituals.duration_min' => 'Min.',
 			'rituals.error_loading' => 'Error loading rituals.',
+			'rituals.form.duration_label' => ({required Object min}) => 'Duration: ${min} Min.',
+			'rituals.form.save' => 'Save',
+			'rituals.delete.confirm_title' => 'Delete ritual?',
 			_ => null,
 		};
 	}
