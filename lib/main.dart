@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:shaolin_planner_new/core/presentation/main_scaffold.dart';
+import 'package:shaolin_planner_new/core/providers/theme_provider.dart';
 import 'package:shaolin_planner_new/features/auth/presentation/login_screen.dart';
 import 'package:shaolin_planner_new/features/auth/providers/auth_provider.dart';
 
@@ -20,17 +22,20 @@ void main() async {
   runApp(const ProviderScope(child: MyApp()));
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends ConsumerWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final themeMode = ref.watch(themeProvider);
+    final lightTheme = ref.watch(lightThemeProvider);
+    final darkTheme = ref.watch(darkThemeProvider);
+
     return MaterialApp(
       title: 'Shaolin Planner',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+      theme: lightTheme,
+      darkTheme: darkTheme,
+      themeMode: themeMode,
       home: const AuthGate(),
     );
   }
@@ -46,7 +51,7 @@ class AuthGate extends ConsumerWidget {
     return authState.when(
       data: (state) {
         if (state.session != null) {
-          return const HomeScreen(); // Placeholder
+          return const MainScaffold();
         }
         return const LoginScreen();
       },
