@@ -32,8 +32,12 @@
     "duration_min": "Min.",
     "error_loading": "Error loading rituals.",
     "form": {
-        "duration_label": "Duration: $min Min.",
-        "save": "Save"
+        "title_label": "Title",
+        "title_hint": "Name of the ritual",
+        "description_label": "Description",
+        "description_hint": "What will you do?",
+        "duration_label": "Duration: $min min.",
+        "save_button": "Save"
     },
     "delete": {
         "confirm_title": "Delete ritual?"

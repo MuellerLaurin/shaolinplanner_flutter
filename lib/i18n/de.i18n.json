@@ -32,8 +32,12 @@
     "duration_min": "Min.",
     "error_loading": "Fehler beim Laden der Rituale.",
     "form": {
+        "title_label": "Titel",
+        "title_hint": "Name des Rituals",
+        "description_label": "Beschreibung",
+        "description_hint": "Was wirst du tun?",
         "duration_label": "Dauer: $min Min.",
-        "save": "Speichern"
+        "save_button": "Speichern"
     },
     "delete": {
         "confirm_title": "Ritual löschen?"

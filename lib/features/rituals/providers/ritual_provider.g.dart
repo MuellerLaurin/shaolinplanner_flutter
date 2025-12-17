@@ -79,7 +79,7 @@ final class RitualListProvider
   RitualList create() => RitualList();
 }
 
-String _$ritualListHash() => r'e40f76920796d56c1f3ba55383c4dd9812a4ce18';
+String _$ritualListHash() => r'f033615abd81991192e5f21df03a8be966401abe';
 
 abstract class _$RitualList extends $AsyncNotifier<List<Ritual>> {
   FutureOr<List<Ritual>> build();

@@ -128,8 +128,8 @@ class _RitualFormSheetState extends ConsumerState<RitualFormSheet> {
             TextFormField(
               controller: _titleController,
               decoration: InputDecoration(
-                labelText: 'Titel', // Fallback or add to i18n
-                hintText: 'Was möchtest du tun?',
+                labelText: t.rituals.form.title_label,
+                hintText: t.rituals.form.title_hint,
               ),
               validator: (value) {
                 if (value == null || value.isEmpty) {
@@ -141,8 +141,9 @@ class _RitualFormSheetState extends ConsumerState<RitualFormSheet> {
             const SizedBox(height: 16),
             TextFormField(
               controller: _descriptionController,
-              decoration: const InputDecoration(
-                labelText: 'Beschreibung (Optional)',
+              decoration: InputDecoration(
+                labelText: t.rituals.form.description_label,
+                hintText: t.rituals.form.description_hint,
               ),
               maxLines: 3,
             ),
@@ -170,7 +171,7 @@ class _RitualFormSheetState extends ConsumerState<RitualFormSheet> {
                           ),
                           Text(
                             t.rituals.form.duration_label(
-                              min: _duration.round(),
+                              min: _duration.round().toString(),
                             ),
                           ),
                         ],
@@ -186,7 +187,10 @@ class _RitualFormSheetState extends ConsumerState<RitualFormSheet> {
               ],
             ),
             const SizedBox(height: 16),
-            ElevatedButton(onPressed: _save, child: Text(t.rituals.form.save)),
+            ElevatedButton(
+              onPressed: _save,
+              child: Text(t.rituals.form.save_button),
+            ),
             const SizedBox(height: 32),
           ],
         ),
