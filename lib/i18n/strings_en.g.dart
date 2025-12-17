@@ -40,6 +40,7 @@ class TranslationsEn with BaseTranslations<AppLocale, Translations> implements T
 	@override late final _TranslationsCommonEn common = _TranslationsCommonEn._(_root);
 	@override late final _TranslationsAuthEn auth = _TranslationsAuthEn._(_root);
 	@override late final _TranslationsNavEn nav = _TranslationsNavEn._(_root);
+	@override late final _TranslationsSettingsEn settings = _TranslationsSettingsEn._(_root);
 }
 
 // Path: common
@@ -82,6 +83,21 @@ class _TranslationsNavEn implements TranslationsNavDe {
 	@override String get settings => 'Settings';
 }
 
+// Path: settings
+class _TranslationsSettingsEn implements TranslationsSettingsDe {
+	_TranslationsSettingsEn._(this._root);
+
+	final TranslationsEn _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Settings';
+	@override String get language => 'Language';
+	@override String get themeMode => 'Appearance';
+	@override String get light => 'Light';
+	@override String get dark => 'Dark';
+	@override String get system => 'System';
+}
+
 /// The flat map containing all translations for locale <en>.
 /// Only for edge cases! For simple maps, use the map function of this library.
 ///
@@ -103,6 +119,12 @@ extension on TranslationsEn {
 			'nav.dashboard' => 'Dashboard',
 			'nav.rituals' => 'Rituals',
 			'nav.settings' => 'Settings',
+			'settings.title' => 'Settings',
+			'settings.language' => 'Language',
+			'settings.themeMode' => 'Appearance',
+			'settings.light' => 'Light',
+			'settings.dark' => 'Dark',
+			'settings.system' => 'System',
 			_ => null,
 		};
 	}

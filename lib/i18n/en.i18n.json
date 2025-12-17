@@ -17,5 +17,13 @@
     "dashboard": "Dashboard",
     "rituals": "Rituals",
     "settings": "Settings"
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "themeMode": "Appearance",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
   }
 }

@@ -43,6 +43,7 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 	late final TranslationsCommonDe common = TranslationsCommonDe._(_root);
 	late final TranslationsAuthDe auth = TranslationsAuthDe._(_root);
 	late final TranslationsNavDe nav = TranslationsNavDe._(_root);
+	late final TranslationsSettingsDe settings = TranslationsSettingsDe._(_root);
 }
 
 // Path: common
@@ -111,6 +112,33 @@ class TranslationsNavDe {
 	String get settings => 'Einstellungen';
 }
 
+// Path: settings
+class TranslationsSettingsDe {
+	TranslationsSettingsDe._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// de: 'Einstellungen'
+	String get title => 'Einstellungen';
+
+	/// de: 'Sprache'
+	String get language => 'Sprache';
+
+	/// de: 'Erscheinungsbild'
+	String get themeMode => 'Erscheinungsbild';
+
+	/// de: 'Hell'
+	String get light => 'Hell';
+
+	/// de: 'Dunkel'
+	String get dark => 'Dunkel';
+
+	/// de: 'System'
+	String get system => 'System';
+}
+
 /// The flat map containing all translations for locale <de>.
 /// Only for edge cases! For simple maps, use the map function of this library.
 ///
@@ -132,6 +160,12 @@ extension on Translations {
 			'nav.dashboard' => 'Dashboard',
 			'nav.rituals' => 'Rituale',
 			'nav.settings' => 'Einstellungen',
+			'settings.title' => 'Einstellungen',
+			'settings.language' => 'Sprache',
+			'settings.themeMode' => 'Erscheinungsbild',
+			'settings.light' => 'Hell',
+			'settings.dark' => 'Dunkel',
+			'settings.system' => 'System',
 			_ => null,
 		};
 	}

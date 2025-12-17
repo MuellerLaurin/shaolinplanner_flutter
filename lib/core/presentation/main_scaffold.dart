@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'package:shaolin_planner_new/core/providers/locale_provider.dart';
 import 'package:shaolin_planner_new/features/auth/providers/auth_provider.dart';
+import 'package:shaolin_planner_new/features/settings/presentation/settings_screen.dart';
 import 'package:shaolin_planner_new/i18n/strings.g.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -18,6 +20,9 @@ class _MainScaffoldState extends ConsumerState<MainScaffold> {
 
   @override
   Widget build(BuildContext context) {
+    // Watch localeProvider to trigger rebuild on language change
+    final _ = ref.watch(localeProvider);
+
     return AdaptiveScaffold(
       selectedIndex: _selectedIndex,
       onSelectedIndexChange: (index) {
@@ -53,7 +58,7 @@ class _MainScaffoldState extends ConsumerState<MainScaffold> {
       case 1:
         return const Center(child: Text('Rituals Page (Placeholder)'));
       case 2:
-        return const Center(child: Text('Settings Page (Placeholder)'));
+        return const SettingsScreen();
       default:
         return const SizedBox.shrink();
     }
