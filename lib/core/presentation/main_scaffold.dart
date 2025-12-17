@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:shaolin_planner_new/core/providers/locale_provider.dart';
 import 'package:shaolin_planner_new/features/auth/providers/auth_provider.dart';
+import 'package:shaolin_planner_new/features/rituals/presentation/rituals_screen.dart';
 import 'package:shaolin_planner_new/features/settings/presentation/settings_screen.dart';
 import 'package:shaolin_planner_new/i18n/strings.g.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -56,7 +57,7 @@ class _MainScaffoldState extends ConsumerState<MainScaffold> {
       case 0:
         return _DashboardPage();
       case 1:
-        return const Center(child: Text('Rituals Page (Placeholder)'));
+        return const RitualsScreen();
       case 2:
         return const SettingsScreen();
       default:

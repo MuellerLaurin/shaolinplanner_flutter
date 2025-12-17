@@ -25,5 +25,11 @@
     "light": "Light",
     "dark": "Dark",
     "system": "System"
+  },
+  "rituals": {
+    "title": "Rituals",
+    "no_data": "No rituals found.",
+    "duration_min": "Min.",
+    "error_loading": "Error loading rituals."
   }
 }

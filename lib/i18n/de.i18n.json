@@ -25,5 +25,11 @@
     "light": "Hell",
     "dark": "Dunkel",
     "system": "System"
+  },
+  "rituals": {
+    "title": "Rituale",
+    "no_data": "Keine Rituale gefunden.",
+    "duration_min": "Min.",
+    "error_loading": "Fehler beim Laden der Rituale."
   }
 }

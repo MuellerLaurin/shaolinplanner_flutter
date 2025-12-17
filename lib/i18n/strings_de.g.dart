@@ -5,20 +5,16 @@
 // ignore_for_file: type=lint, unused_import
 // dart format off
 
-part of 'strings.g.dart';
+import 'package:flutter/widgets.dart';
+import 'package:intl/intl.dart';
+import 'package:slang/generated.dart';
+import 'strings.g.dart';
 
 // Path: <root>
-typedef TranslationsDe = Translations; // ignore: unused_element
-class Translations with BaseTranslations<AppLocale, Translations> {
-	/// Returns the current translations of the given [context].
-	///
-	/// Usage:
-	/// final t = Translations.of(context);
-	static Translations of(BuildContext context) => InheritedLocaleData.of<AppLocale, Translations>(context).translations;
-
+class TranslationsDe with BaseTranslations<AppLocale, Translations> implements Translations {
 	/// You can call this constructor and build your own translation instance of this locale.
 	/// Constructing via the enum [AppLocale.build] is preferred.
-	Translations({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver, TranslationMetadata<AppLocale, Translations>? meta})
+	TranslationsDe({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver, TranslationMetadata<AppLocale, Translations>? meta})
 		: assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
 		  $meta = meta ?? TranslationMetadata(
 		    locale: AppLocale.de,
@@ -33,110 +29,87 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 	@override final TranslationMetadata<AppLocale, Translations> $meta;
 
 	/// Access flat map
-	dynamic operator[](String key) => $meta.getTranslation(key);
+	@override dynamic operator[](String key) => $meta.getTranslation(key);
 
-	late final Translations _root = this; // ignore: unused_field
+	late final TranslationsDe _root = this; // ignore: unused_field
 
-	Translations $copyWith({TranslationMetadata<AppLocale, Translations>? meta}) => Translations(meta: meta ?? this.$meta);
+	@override 
+	TranslationsDe $copyWith({TranslationMetadata<AppLocale, Translations>? meta}) => TranslationsDe(meta: meta ?? this.$meta);
 
 	// Translations
-	late final TranslationsCommonDe common = TranslationsCommonDe._(_root);
-	late final TranslationsAuthDe auth = TranslationsAuthDe._(_root);
-	late final TranslationsNavDe nav = TranslationsNavDe._(_root);
-	late final TranslationsSettingsDe settings = TranslationsSettingsDe._(_root);
+	@override late final _TranslationsCommonDe common = _TranslationsCommonDe._(_root);
+	@override late final _TranslationsAuthDe auth = _TranslationsAuthDe._(_root);
+	@override late final _TranslationsNavDe nav = _TranslationsNavDe._(_root);
+	@override late final _TranslationsSettingsDe settings = _TranslationsSettingsDe._(_root);
+	@override late final _TranslationsRitualsDe rituals = _TranslationsRitualsDe._(_root);
 }
 
 // Path: common
-class TranslationsCommonDe {
-	TranslationsCommonDe._(this._root);
+class _TranslationsCommonDe implements TranslationsCommonEn {
+	_TranslationsCommonDe._(this._root);
 
-	final Translations _root; // ignore: unused_field
+	final TranslationsDe _root; // ignore: unused_field
 
 	// Translations
-
-	/// de: 'Speichern'
-	String get save => 'Speichern';
-
-	/// de: 'Abbrechen'
-	String get cancel => 'Abbrechen';
-
-	/// de: 'Löschen'
-	String get delete => 'Löschen';
-
-	/// de: 'Bearbeiten'
-	String get edit => 'Bearbeiten';
-
-	/// de: 'Laden...'
-	String get loading => 'Laden...';
+	@override String get save => 'Speichern';
+	@override String get cancel => 'Abbrechen';
+	@override String get delete => 'Löschen';
+	@override String get edit => 'Bearbeiten';
+	@override String get loading => 'Laden...';
 }
 
 // Path: auth
-class TranslationsAuthDe {
-	TranslationsAuthDe._(this._root);
+class _TranslationsAuthDe implements TranslationsAuthEn {
+	_TranslationsAuthDe._(this._root);
 
-	final Translations _root; // ignore: unused_field
+	final TranslationsDe _root; // ignore: unused_field
 
 	// Translations
-
-	/// de: 'Anmelden'
-	String get login => 'Anmelden';
-
-	/// de: 'E-Mail'
-	String get email => 'E-Mail';
-
-	/// de: 'Passwort'
-	String get password => 'Passwort';
-
-	/// de: 'Abmelden'
-	String get logout => 'Abmelden';
-
-	/// de: 'Willkommen'
-	String get welcome => 'Willkommen';
+	@override String get login => 'Anmelden';
+	@override String get email => 'E-Mail';
+	@override String get password => 'Passwort';
+	@override String get logout => 'Abmelden';
+	@override String get welcome => 'Willkommen';
 }
 
 // Path: nav
-class TranslationsNavDe {
-	TranslationsNavDe._(this._root);
+class _TranslationsNavDe implements TranslationsNavEn {
+	_TranslationsNavDe._(this._root);
 
-	final Translations _root; // ignore: unused_field
+	final TranslationsDe _root; // ignore: unused_field
 
 	// Translations
-
-	/// de: 'Dashboard'
-	String get dashboard => 'Dashboard';
-
-	/// de: 'Rituale'
-	String get rituals => 'Rituale';
-
-	/// de: 'Einstellungen'
-	String get settings => 'Einstellungen';
+	@override String get dashboard => 'Dashboard';
+	@override String get rituals => 'Rituale';
+	@override String get settings => 'Einstellungen';
 }
 
 // Path: settings
-class TranslationsSettingsDe {
-	TranslationsSettingsDe._(this._root);
+class _TranslationsSettingsDe implements TranslationsSettingsEn {
+	_TranslationsSettingsDe._(this._root);
 
-	final Translations _root; // ignore: unused_field
+	final TranslationsDe _root; // ignore: unused_field
 
 	// Translations
+	@override String get title => 'Einstellungen';
+	@override String get language => 'Sprache';
+	@override String get themeMode => 'Erscheinungsbild';
+	@override String get light => 'Hell';
+	@override String get dark => 'Dunkel';
+	@override String get system => 'System';
+}
 
-	/// de: 'Einstellungen'
-	String get title => 'Einstellungen';
+// Path: rituals
+class _TranslationsRitualsDe implements TranslationsRitualsEn {
+	_TranslationsRitualsDe._(this._root);
 
-	/// de: 'Sprache'
-	String get language => 'Sprache';
+	final TranslationsDe _root; // ignore: unused_field
 
-	/// de: 'Erscheinungsbild'
-	String get themeMode => 'Erscheinungsbild';
-
-	/// de: 'Hell'
-	String get light => 'Hell';
-
-	/// de: 'Dunkel'
-	String get dark => 'Dunkel';
-
-	/// de: 'System'
-	String get system => 'System';
+	// Translations
+	@override String get title => 'Rituale';
+	@override String get no_data => 'Keine Rituale gefunden.';
+	@override String get duration_min => 'Min.';
+	@override String get error_loading => 'Fehler beim Laden der Rituale.';
 }
 
 /// The flat map containing all translations for locale <de>.
@@ -144,7 +117,7 @@ class TranslationsSettingsDe {
 ///
 /// The Dart AOT compiler has issues with very large switch statements,
 /// so the map is split into smaller functions (512 entries each).
-extension on Translations {
+extension on TranslationsDe {
 	dynamic _flatMapFunction(String path) {
 		return switch (path) {
 			'common.save' => 'Speichern',
@@ -166,6 +139,10 @@ extension on Translations {
 			'settings.light' => 'Hell',
 			'settings.dark' => 'Dunkel',
 			'settings.system' => 'System',
+			'rituals.title' => 'Rituale',
+			'rituals.no_data' => 'Keine Rituale gefunden.',
+			'rituals.duration_min' => 'Min.',
+			'rituals.error_loading' => 'Fehler beim Laden der Rituale.',
 			_ => null,
 		};
 	}
