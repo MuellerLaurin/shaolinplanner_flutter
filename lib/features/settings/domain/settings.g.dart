@@ -16,6 +16,8 @@ _Settings _$SettingsFromJson(Map<String, dynamic> json) => _Settings(
   ritualPreparationTime: (json['ritualPreparationTime'] as num?)?.toInt() ?? 2,
   doRitualPreparationTimeFirstRitual:
       json['doRitualPreparationTimeFirstRitual'] as bool? ?? false,
+  darkMode: json['darkMode'] as String? ?? 'system',
+  language: json['language'] as String? ?? 'en',
 );
 
 Map<String, dynamic> _$SettingsToJson(_Settings instance) => <String, dynamic>{
@@ -27,4 +29,6 @@ Map<String, dynamic> _$SettingsToJson(_Settings instance) => <String, dynamic>{
   'ritualPreparationTime': instance.ritualPreparationTime,
   'doRitualPreparationTimeFirstRitual':
       instance.doRitualPreparationTimeFirstRitual,
+  'darkMode': instance.darkMode,
+  'language': instance.language,
 };

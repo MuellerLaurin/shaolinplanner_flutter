@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Settings {
 
- bool get playSound; bool get playSoundEndOfRitual; bool get playSoundInRitual; int get playSoundInRitualTime; int get routinePreparationTime; int get ritualPreparationTime; bool get doRitualPreparationTimeFirstRitual;
+ bool get playSound; bool get playSoundEndOfRitual; bool get playSoundInRitual; int get playSoundInRitualTime; int get routinePreparationTime; int get ritualPreparationTime; bool get doRitualPreparationTimeFirstRitual; String get darkMode; String get language;
 /// Create a copy of Settings
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $SettingsCopyWith<Settings> get copyWith => _$SettingsCopyWithImpl<Settings>(thi
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Settings&&(identical(other.playSound, playSound) || other.playSound == playSound)&&(identical(other.playSoundEndOfRitual, playSoundEndOfRitual) || other.playSoundEndOfRitual == playSoundEndOfRitual)&&(identical(other.playSoundInRitual, playSoundInRitual) || other.playSoundInRitual == playSoundInRitual)&&(identical(other.playSoundInRitualTime, playSoundInRitualTime) || other.playSoundInRitualTime == playSoundInRitualTime)&&(identical(other.routinePreparationTime, routinePreparationTime) || other.routinePreparationTime == routinePreparationTime)&&(identical(other.ritualPreparationTime, ritualPreparationTime) || other.ritualPreparationTime == ritualPreparationTime)&&(identical(other.doRitualPreparationTimeFirstRitual, doRitualPreparationTimeFirstRitual) || other.doRitualPreparationTimeFirstRitual == doRitualPreparationTimeFirstRitual));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Settings&&(identical(other.playSound, playSound) || other.playSound == playSound)&&(identical(other.playSoundEndOfRitual, playSoundEndOfRitual) || other.playSoundEndOfRitual == playSoundEndOfRitual)&&(identical(other.playSoundInRitual, playSoundInRitual) || other.playSoundInRitual == playSoundInRitual)&&(identical(other.playSoundInRitualTime, playSoundInRitualTime) || other.playSoundInRitualTime == playSoundInRitualTime)&&(identical(other.routinePreparationTime, routinePreparationTime) || other.routinePreparationTime == routinePreparationTime)&&(identical(other.ritualPreparationTime, ritualPreparationTime) || other.ritualPreparationTime == ritualPreparationTime)&&(identical(other.doRitualPreparationTimeFirstRitual, doRitualPreparationTimeFirstRitual) || other.doRitualPreparationTimeFirstRitual == doRitualPreparationTimeFirstRitual)&&(identical(other.darkMode, darkMode) || other.darkMode == darkMode)&&(identical(other.language, language) || other.language == language));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,playSound,playSoundEndOfRitual,playSoundInRitual,playSoundInRitualTime,routinePreparationTime,ritualPreparationTime,doRitualPreparationTimeFirstRitual);
+int get hashCode => Object.hash(runtimeType,playSound,playSoundEndOfRitual,playSoundInRitual,playSoundInRitualTime,routinePreparationTime,ritualPreparationTime,doRitualPreparationTimeFirstRitual,darkMode,language);
 
 @override
 String toString() {
-  return 'Settings(playSound: $playSound, playSoundEndOfRitual: $playSoundEndOfRitual, playSoundInRitual: $playSoundInRitual, playSoundInRitualTime: $playSoundInRitualTime, routinePreparationTime: $routinePreparationTime, ritualPreparationTime: $ritualPreparationTime, doRitualPreparationTimeFirstRitual: $doRitualPreparationTimeFirstRitual)';
+  return 'Settings(playSound: $playSound, playSoundEndOfRitual: $playSoundEndOfRitual, playSoundInRitual: $playSoundInRitual, playSoundInRitualTime: $playSoundInRitualTime, routinePreparationTime: $routinePreparationTime, ritualPreparationTime: $ritualPreparationTime, doRitualPreparationTimeFirstRitual: $doRitualPreparationTimeFirstRitual, darkMode: $darkMode, language: $language)';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $SettingsCopyWith<$Res>  {
   factory $SettingsCopyWith(Settings value, $Res Function(Settings) _then) = _$SettingsCopyWithImpl;
 @useResult
 $Res call({
- bool playSound, bool playSoundEndOfRitual, bool playSoundInRitual, int playSoundInRitualTime, int routinePreparationTime, int ritualPreparationTime, bool doRitualPreparationTimeFirstRitual
+ bool playSound, bool playSoundEndOfRitual, bool playSoundInRitual, int playSoundInRitualTime, int routinePreparationTime, int ritualPreparationTime, bool doRitualPreparationTimeFirstRitual, String darkMode, String language
 });
 
 
@@ -65,7 +65,7 @@ class _$SettingsCopyWithImpl<$Res>
 
 /// Create a copy of Settings
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? playSound = null,Object? playSoundEndOfRitual = null,Object? playSoundInRitual = null,Object? playSoundInRitualTime = null,Object? routinePreparationTime = null,Object? ritualPreparationTime = null,Object? doRitualPreparationTimeFirstRitual = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? playSound = null,Object? playSoundEndOfRitual = null,Object? playSoundInRitual = null,Object? playSoundInRitualTime = null,Object? routinePreparationTime = null,Object? ritualPreparationTime = null,Object? doRitualPreparationTimeFirstRitual = null,Object? darkMode = null,Object? language = null,}) {
   return _then(_self.copyWith(
 playSound: null == playSound ? _self.playSound : playSound // ignore: cast_nullable_to_non_nullable
 as bool,playSoundEndOfRitual: null == playSoundEndOfRitual ? _self.playSoundEndOfRitual : playSoundEndOfRitual // ignore: cast_nullable_to_non_nullable
@@ -74,7 +74,9 @@ as bool,playSoundInRitualTime: null == playSoundInRitualTime ? _self.playSoundIn
 as int,routinePreparationTime: null == routinePreparationTime ? _self.routinePreparationTime : routinePreparationTime // ignore: cast_nullable_to_non_nullable
 as int,ritualPreparationTime: null == ritualPreparationTime ? _self.ritualPreparationTime : ritualPreparationTime // ignore: cast_nullable_to_non_nullable
 as int,doRitualPreparationTimeFirstRitual: null == doRitualPreparationTimeFirstRitual ? _self.doRitualPreparationTimeFirstRitual : doRitualPreparationTimeFirstRitual // ignore: cast_nullable_to_non_nullable
-as bool,
+as bool,darkMode: null == darkMode ? _self.darkMode : darkMode // ignore: cast_nullable_to_non_nullable
+as String,language: null == language ? _self.language : language // ignore: cast_nullable_to_non_nullable
+as String,
   ));
 }
 
@@ -159,10 +161,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( bool playSound,  bool playSoundEndOfRitual,  bool playSoundInRitual,  int playSoundInRitualTime,  int routinePreparationTime,  int ritualPreparationTime,  bool doRitualPreparationTimeFirstRitual)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( bool playSound,  bool playSoundEndOfRitual,  bool playSoundInRitual,  int playSoundInRitualTime,  int routinePreparationTime,  int ritualPreparationTime,  bool doRitualPreparationTimeFirstRitual,  String darkMode,  String language)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Settings() when $default != null:
-return $default(_that.playSound,_that.playSoundEndOfRitual,_that.playSoundInRitual,_that.playSoundInRitualTime,_that.routinePreparationTime,_that.ritualPreparationTime,_that.doRitualPreparationTimeFirstRitual);case _:
+return $default(_that.playSound,_that.playSoundEndOfRitual,_that.playSoundInRitual,_that.playSoundInRitualTime,_that.routinePreparationTime,_that.ritualPreparationTime,_that.doRitualPreparationTimeFirstRitual,_that.darkMode,_that.language);case _:
   return orElse();
 
 }
@@ -180,10 +182,10 @@ return $default(_that.playSound,_that.playSoundEndOfRitual,_that.playSoundInRitu
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( bool playSound,  bool playSoundEndOfRitual,  bool playSoundInRitual,  int playSoundInRitualTime,  int routinePreparationTime,  int ritualPreparationTime,  bool doRitualPreparationTimeFirstRitual)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( bool playSound,  bool playSoundEndOfRitual,  bool playSoundInRitual,  int playSoundInRitualTime,  int routinePreparationTime,  int ritualPreparationTime,  bool doRitualPreparationTimeFirstRitual,  String darkMode,  String language)  $default,) {final _that = this;
 switch (_that) {
 case _Settings():
-return $default(_that.playSound,_that.playSoundEndOfRitual,_that.playSoundInRitual,_that.playSoundInRitualTime,_that.routinePreparationTime,_that.ritualPreparationTime,_that.doRitualPreparationTimeFirstRitual);case _:
+return $default(_that.playSound,_that.playSoundEndOfRitual,_that.playSoundInRitual,_that.playSoundInRitualTime,_that.routinePreparationTime,_that.ritualPreparationTime,_that.doRitualPreparationTimeFirstRitual,_that.darkMode,_that.language);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -200,10 +202,10 @@ return $default(_that.playSound,_that.playSoundEndOfRitual,_that.playSoundInRitu
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( bool playSound,  bool playSoundEndOfRitual,  bool playSoundInRitual,  int playSoundInRitualTime,  int routinePreparationTime,  int ritualPreparationTime,  bool doRitualPreparationTimeFirstRitual)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( bool playSound,  bool playSoundEndOfRitual,  bool playSoundInRitual,  int playSoundInRitualTime,  int routinePreparationTime,  int ritualPreparationTime,  bool doRitualPreparationTimeFirstRitual,  String darkMode,  String language)?  $default,) {final _that = this;
 switch (_that) {
 case _Settings() when $default != null:
-return $default(_that.playSound,_that.playSoundEndOfRitual,_that.playSoundInRitual,_that.playSoundInRitualTime,_that.routinePreparationTime,_that.ritualPreparationTime,_that.doRitualPreparationTimeFirstRitual);case _:
+return $default(_that.playSound,_that.playSoundEndOfRitual,_that.playSoundInRitual,_that.playSoundInRitualTime,_that.routinePreparationTime,_that.ritualPreparationTime,_that.doRitualPreparationTimeFirstRitual,_that.darkMode,_that.language);case _:
   return null;
 
 }
@@ -215,7 +217,7 @@ return $default(_that.playSound,_that.playSoundEndOfRitual,_that.playSoundInRitu
 @JsonSerializable()
 
 class _Settings implements Settings {
-  const _Settings({this.playSound = true, this.playSoundEndOfRitual = true, this.playSoundInRitual = true, this.playSoundInRitualTime = 1, this.routinePreparationTime = 5, this.ritualPreparationTime = 2, this.doRitualPreparationTimeFirstRitual = false});
+  const _Settings({this.playSound = true, this.playSoundEndOfRitual = true, this.playSoundInRitual = true, this.playSoundInRitualTime = 1, this.routinePreparationTime = 5, this.ritualPreparationTime = 2, this.doRitualPreparationTimeFirstRitual = false, this.darkMode = 'system', this.language = 'en'});
   factory _Settings.fromJson(Map<String, dynamic> json) => _$SettingsFromJson(json);
 
 @override@JsonKey() final  bool playSound;
@@ -225,6 +227,8 @@ class _Settings implements Settings {
 @override@JsonKey() final  int routinePreparationTime;
 @override@JsonKey() final  int ritualPreparationTime;
 @override@JsonKey() final  bool doRitualPreparationTimeFirstRitual;
+@override@JsonKey() final  String darkMode;
+@override@JsonKey() final  String language;
 
 /// Create a copy of Settings
 /// with the given fields replaced by the non-null parameter values.
@@ -239,16 +243,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Settings&&(identical(other.playSound, playSound) || other.playSound == playSound)&&(identical(other.playSoundEndOfRitual, playSoundEndOfRitual) || other.playSoundEndOfRitual == playSoundEndOfRitual)&&(identical(other.playSoundInRitual, playSoundInRitual) || other.playSoundInRitual == playSoundInRitual)&&(identical(other.playSoundInRitualTime, playSoundInRitualTime) || other.playSoundInRitualTime == playSoundInRitualTime)&&(identical(other.routinePreparationTime, routinePreparationTime) || other.routinePreparationTime == routinePreparationTime)&&(identical(other.ritualPreparationTime, ritualPreparationTime) || other.ritualPreparationTime == ritualPreparationTime)&&(identical(other.doRitualPreparationTimeFirstRitual, doRitualPreparationTimeFirstRitual) || other.doRitualPreparationTimeFirstRitual == doRitualPreparationTimeFirstRitual));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Settings&&(identical(other.playSound, playSound) || other.playSound == playSound)&&(identical(other.playSoundEndOfRitual, playSoundEndOfRitual) || other.playSoundEndOfRitual == playSoundEndOfRitual)&&(identical(other.playSoundInRitual, playSoundInRitual) || other.playSoundInRitual == playSoundInRitual)&&(identical(other.playSoundInRitualTime, playSoundInRitualTime) || other.playSoundInRitualTime == playSoundInRitualTime)&&(identical(other.routinePreparationTime, routinePreparationTime) || other.routinePreparationTime == routinePreparationTime)&&(identical(other.ritualPreparationTime, ritualPreparationTime) || other.ritualPreparationTime == ritualPreparationTime)&&(identical(other.doRitualPreparationTimeFirstRitual, doRitualPreparationTimeFirstRitual) || other.doRitualPreparationTimeFirstRitual == doRitualPreparationTimeFirstRitual)&&(identical(other.darkMode, darkMode) || other.darkMode == darkMode)&&(identical(other.language, language) || other.language == language));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,playSound,playSoundEndOfRitual,playSoundInRitual,playSoundInRitualTime,routinePreparationTime,ritualPreparationTime,doRitualPreparationTimeFirstRitual);
+int get hashCode => Object.hash(runtimeType,playSound,playSoundEndOfRitual,playSoundInRitual,playSoundInRitualTime,routinePreparationTime,ritualPreparationTime,doRitualPreparationTimeFirstRitual,darkMode,language);
 
 @override
 String toString() {
-  return 'Settings(playSound: $playSound, playSoundEndOfRitual: $playSoundEndOfRitual, playSoundInRitual: $playSoundInRitual, playSoundInRitualTime: $playSoundInRitualTime, routinePreparationTime: $routinePreparationTime, ritualPreparationTime: $ritualPreparationTime, doRitualPreparationTimeFirstRitual: $doRitualPreparationTimeFirstRitual)';
+  return 'Settings(playSound: $playSound, playSoundEndOfRitual: $playSoundEndOfRitual, playSoundInRitual: $playSoundInRitual, playSoundInRitualTime: $playSoundInRitualTime, routinePreparationTime: $routinePreparationTime, ritualPreparationTime: $ritualPreparationTime, doRitualPreparationTimeFirstRitual: $doRitualPreparationTimeFirstRitual, darkMode: $darkMode, language: $language)';
 }
 
 
@@ -259,7 +263,7 @@ abstract mixin class _$SettingsCopyWith<$Res> implements $SettingsCopyWith<$Res>
   factory _$SettingsCopyWith(_Settings value, $Res Function(_Settings) _then) = __$SettingsCopyWithImpl;
 @override @useResult
 $Res call({
- bool playSound, bool playSoundEndOfRitual, bool playSoundInRitual, int playSoundInRitualTime, int routinePreparationTime, int ritualPreparationTime, bool doRitualPreparationTimeFirstRitual
+ bool playSound, bool playSoundEndOfRitual, bool playSoundInRitual, int playSoundInRitualTime, int routinePreparationTime, int ritualPreparationTime, bool doRitualPreparationTimeFirstRitual, String darkMode, String language
 });
 
 
@@ -276,7 +280,7 @@ class __$SettingsCopyWithImpl<$Res>
 
 /// Create a copy of Settings
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? playSound = null,Object? playSoundEndOfRitual = null,Object? playSoundInRitual = null,Object? playSoundInRitualTime = null,Object? routinePreparationTime = null,Object? ritualPreparationTime = null,Object? doRitualPreparationTimeFirstRitual = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? playSound = null,Object? playSoundEndOfRitual = null,Object? playSoundInRitual = null,Object? playSoundInRitualTime = null,Object? routinePreparationTime = null,Object? ritualPreparationTime = null,Object? doRitualPreparationTimeFirstRitual = null,Object? darkMode = null,Object? language = null,}) {
   return _then(_Settings(
 playSound: null == playSound ? _self.playSound : playSound // ignore: cast_nullable_to_non_nullable
 as bool,playSoundEndOfRitual: null == playSoundEndOfRitual ? _self.playSoundEndOfRitual : playSoundEndOfRitual // ignore: cast_nullable_to_non_nullable
@@ -285,7 +289,9 @@ as bool,playSoundInRitualTime: null == playSoundInRitualTime ? _self.playSoundIn
 as int,routinePreparationTime: null == routinePreparationTime ? _self.routinePreparationTime : routinePreparationTime // ignore: cast_nullable_to_non_nullable
 as int,ritualPreparationTime: null == ritualPreparationTime ? _self.ritualPreparationTime : ritualPreparationTime // ignore: cast_nullable_to_non_nullable
 as int,doRitualPreparationTimeFirstRitual: null == doRitualPreparationTimeFirstRitual ? _self.doRitualPreparationTimeFirstRitual : doRitualPreparationTimeFirstRitual // ignore: cast_nullable_to_non_nullable
-as bool,
+as bool,darkMode: null == darkMode ? _self.darkMode : darkMode // ignore: cast_nullable_to_non_nullable
+as String,language: null == language ? _self.language : language // ignore: cast_nullable_to_non_nullable
+as String,
   ));
 }
 
