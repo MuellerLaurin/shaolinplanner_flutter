@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shaolin_planner_new/features/routines/domain/routine.dart';
 import 'package:shaolin_planner_new/features/routines/providers/routine_provider.dart';
+import 'package:shaolin_planner_new/features/routines/presentation/routine_edit_screen.dart';
 import 'package:shaolin_planner_new/i18n/strings.g.dart';
 
 class RoutinesScreen extends ConsumerWidget {
@@ -67,9 +68,26 @@ class _RoutineCard extends StatelessWidget {
                     style: Theme.of(context).textTheme.titleLarge,
                   ),
                 ),
-                Text(
-                  t.routines.duration(minutes: totalDuration),
-                  style: Theme.of(context).textTheme.bodyMedium,
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Text(
+                      t.routines.duration(minutes: totalDuration),
+                      style: Theme.of(context).textTheme.bodyMedium,
+                    ),
+                    IconButton(
+                      icon: const Icon(Icons.edit_note),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                RoutineEditScreen(routineId: routine.id),
+                          ),
+                        );
+                      },
+                    ),
+                  ],
                 ),
               ],
             ),
