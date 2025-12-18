@@ -16,6 +16,7 @@
   "nav": {
     "dashboard": "Dashboard",
     "rituals": "Rituals",
+    "routines": "Routines",
     "settings": "Settings"
   },
   "settings": {
@@ -42,5 +43,10 @@
     "delete": {
         "confirm_title": "Delete ritual?"
     }
+  },
+  "routines": {
+    "title": "Routines",
+    "no_data": "No routines found.",
+    "duration": "Duration: $minutes min"
   }
 }
