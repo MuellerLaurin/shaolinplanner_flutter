@@ -25,7 +25,19 @@
     "themeMode": "Appearance",
     "light": "Light",
     "dark": "Dark",
-    "system": "System"
+    "system": "System",
+    "appSettings": "App Settings",
+    "general": {
+      "title": "General Settings",
+      "playSound": "Play sounds",
+      "playSoundEndOfRitual": "Sound at the end of each ritual",
+      "playSoundInRitual": "Sound before the ritual ends",
+      "timeBeforeRitualEnd": "Time before the end of a ritual",
+      "minutes": "minutes",
+      "routinePreparationTime": "Routine preparation time",
+      "ritualPreparationTime": "Ritual preparation time",
+      "firstRitualPreparationTime": "Preparation time for first ritual"
+    }
   },
   "rituals": {
     "title": "Rituals",

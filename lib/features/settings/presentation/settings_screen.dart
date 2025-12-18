@@ -21,70 +21,87 @@ class SettingsScreen extends ConsumerWidget {
       appBar: AppBar(title: Text(t.settings.title)),
       body: ListView(
         children: [
-          // Language
-          ListTile(
-            leading: const Icon(Icons.language),
-            title: Text(t.settings.language),
-            trailing: DropdownButton<AppLocale>(
-              value: currentLocale,
-              onChanged: (newLocale) {
-                if (newLocale != null) {
-                  ref.read(localeProvider.notifier).setLocale(newLocale);
-                }
-              },
-              items: [
-                DropdownMenuItem(
-                  value: AppLocale.de,
-                  child: const Text('🇩🇪 Deutsch'),
-                ),
-                DropdownMenuItem(
-                  value: AppLocale.en,
-                  child: const Text('🇺🇸 English'),
-                ),
-              ],
-              underline: const SizedBox(),
-            ),
-          ),
-          const Divider(),
-          // Theme
-          ListTile(
-            leading: _getThemeIcon(currentThemeMode),
-            title: Text(t.settings.themeMode),
-            subtitle: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+          // App Settings
+          _buildSectionHeader(t.settings.appSettings, context),
+          Card(
+            margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+            child: Column(
               children: [
-                const SizedBox(height: 8),
-                SegmentedButton<ThemeMode>(
-                  segments: [
-                    ButtonSegment(
-                      value: ThemeMode.light,
-                      label: Text(t.settings.light),
-                      icon: const Icon(Icons.light_mode),
+                // Language
+                ListTile(
+                  leading: const Icon(Icons.language),
+                  title: Text(t.settings.language),
+                  trailing: DropdownButton<AppLocale>(
+                    value: currentLocale,
+                    onChanged: (newLocale) {
+                      if (newLocale != null) {
+                        ref.read(localeProvider.notifier).setLocale(newLocale);
+                      }
+                    },
+                    items: [
+                      DropdownMenuItem(
+                        value: AppLocale.de,
+                        child: const Text('🇩🇪 Deutsch'),
+                      ),
+                      DropdownMenuItem(
+                        value: AppLocale.en,
+                        child: const Text('🇺🇸 English'),
+                      ),
+                    ],
+                    underline: const SizedBox(),
+                  ),
+                ),
+                const Divider(height: 1),
+                // Theme
+                ListTile(
+                  title: Row(
+                    children: [
+                      _getThemeIcon(currentThemeMode),
+                      const SizedBox(width: 16),
+                      Text(t.settings.themeMode),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(
+                    left: 16,
+                    right: 16,
+                    bottom: 16,
+                  ),
+                  child: SizedBox(
+                    width: double.infinity,
+                    child: SegmentedButton<ThemeMode>(
+                      segments: [
+                        ButtonSegment(
+                          value: ThemeMode.light,
+                          label: Text(t.settings.light),
+                          icon: const Icon(Icons.light_mode),
+                        ),
+                        ButtonSegment(
+                          value: ThemeMode.system,
+                          label: Text(t.settings.system),
+                          icon: const Icon(Icons.brightness_auto),
+                        ),
+                        ButtonSegment(
+                          value: ThemeMode.dark,
+                          label: Text(t.settings.dark),
+                          icon: const Icon(Icons.dark_mode),
+                        ),
+                      ],
+                      selected: {currentThemeMode},
+                      onSelectionChanged: (Set<ThemeMode> newSelection) {
+                        ref
+                            .read(themeProvider.notifier)
+                            .setThemeMode(newSelection.first);
+                      },
                     ),
-                    ButtonSegment(
-                      value: ThemeMode.system,
-                      label: Text(t.settings.system),
-                      icon: const Icon(Icons.brightness_auto),
-                    ),
-                    ButtonSegment(
-                      value: ThemeMode.dark,
-                      label: Text(t.settings.dark),
-                      icon: const Icon(Icons.dark_mode),
-                    ),
-                  ],
-                  selected: {currentThemeMode},
-                  onSelectionChanged: (Set<ThemeMode> newSelection) {
-                    ref
-                        .read(themeProvider.notifier)
-                        .setThemeMode(newSelection.first);
-                  },
+                  ),
                 ),
               ],
             ),
           ),
-          const Divider(),
           // General Settings
-          _buildSectionHeader('General Settings', context),
+          _buildSectionHeader(t.settings.general.title, context),
           settingsAsync.when(
             data: (settings) => Card(
               margin: const EdgeInsets.symmetric(
@@ -95,7 +112,7 @@ class SettingsScreen extends ConsumerWidget {
                 children: [
                   SwitchListTile(
                     title: Text(
-                      'Play sounds',
+                      t.settings.general.playSound,
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
                     value: settings.playSound,
@@ -107,7 +124,7 @@ class SettingsScreen extends ConsumerWidget {
                   if (settings.playSound) ...[
                     SwitchListTile(
                       title: Text(
-                        'Sound at the end of each ritual',
+                        t.settings.general.playSoundEndOfRitual,
                         style: Theme.of(context).textTheme.bodyLarge,
                       ),
                       value: settings.playSoundEndOfRitual,
@@ -118,7 +135,7 @@ class SettingsScreen extends ConsumerWidget {
                     ),
                     SwitchListTile(
                       title: Text(
-                        'Sound before the ritual ends',
+                        t.settings.general.playSoundInRitual,
                         style: Theme.of(context).textTheme.bodyLarge,
                       ),
                       value: settings.playSoundInRitual,
@@ -132,11 +149,11 @@ class SettingsScreen extends ConsumerWidget {
                   if (settings.playSound && settings.playSoundInRitual)
                     ListTile(
                       title: Text(
-                        'Time before the end of a ritual',
+                        t.settings.general.timeBeforeRitualEnd,
                         style: Theme.of(context).textTheme.bodyLarge,
                       ),
                       trailing: Text(
-                        '${settings.playSoundInRitualTime} minutes',
+                        '${settings.playSoundInRitualTime} ${t.settings.general.minutes}',
                         style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                           fontWeight: FontWeight.w600,
                         ),
@@ -157,11 +174,11 @@ class SettingsScreen extends ConsumerWidget {
                     ),
                   ListTile(
                     title: Text(
-                      'Routine preparation time',
+                      t.settings.general.routinePreparationTime,
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
                     trailing: Text(
-                      '${settings.routinePreparationTime} minutes',
+                      '${settings.routinePreparationTime} ${t.settings.general.minutes}',
                       style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                         fontWeight: FontWeight.w600,
                       ),
@@ -182,11 +199,11 @@ class SettingsScreen extends ConsumerWidget {
                   ),
                   ListTile(
                     title: Text(
-                      'Ritual preparation time',
+                      t.settings.general.ritualPreparationTime,
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
                     trailing: Text(
-                      '${settings.ritualPreparationTime} minutes',
+                      '${settings.ritualPreparationTime} ${t.settings.general.minutes}',
                       style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                         fontWeight: FontWeight.w600,
                       ),
@@ -208,7 +225,7 @@ class SettingsScreen extends ConsumerWidget {
                   if (settings.ritualPreparationTime > 0)
                     SwitchListTile(
                       title: Text(
-                        'Preparation time for first ritual',
+                        t.settings.general.firstRitualPreparationTime,
                         style: Theme.of(context).textTheme.bodyLarge,
                       ),
                       value: settings.doRitualPreparationTimeFirstRitual,
