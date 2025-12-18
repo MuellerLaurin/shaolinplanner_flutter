@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:shaolin_planner_new/features/routines/domain/routine.dart';
 import 'package:shaolin_planner_new/features/routines/domain/routine_ritual.dart';
 import 'package:shaolin_planner_new/features/routines/providers/routine_provider.dart';
-import 'package:shaolin_planner_new/features/routines/presentation/widgets/ritual_selection_sheet.dart';
+import 'package:shaolin_planner_new/features/routines/presentation/widgets/ritual_library_sheet.dart';
 import 'package:shaolin_planner_new/features/rituals/domain/ritual.dart';
 import 'package:shaolin_planner_new/i18n/strings.g.dart';
 
@@ -19,6 +19,18 @@ class RoutinesScreen extends ConsumerWidget {
       appBar: AppBar(
         title: Text(t.routines.title),
         actions: [
+          IconButton(
+            tooltip: t.rituals.library.manage,
+            icon: const Icon(Icons.library_books),
+            onPressed: () {
+              showModalBottomSheet(
+                context: context,
+                isScrollControlled: true,
+                builder: (context) =>
+                    const RitualLibrarySheet(selectionMode: false),
+              );
+            },
+          ),
           IconButton(
             icon: const Icon(Icons.add),
             onPressed: () => _showCreateRoutineDialog(context, ref),
@@ -338,7 +350,7 @@ class _RoutineCardState extends ConsumerState<_RoutineCard> {
     final Ritual? selected = await showModalBottomSheet<Ritual>(
       context: context,
       isScrollControlled: true,
-      builder: (context) => const RitualSelectionSheet(),
+      builder: (context) => const RitualLibrarySheet(selectionMode: true),
     );
 
     if (selected != null) {

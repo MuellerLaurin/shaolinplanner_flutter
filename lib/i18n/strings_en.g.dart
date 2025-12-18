@@ -114,6 +114,7 @@ class _TranslationsRitualsEn implements TranslationsRitualsDe {
 	@override String get error_loading => 'Error loading rituals.';
 	@override late final _TranslationsRitualsFormEn form = _TranslationsRitualsFormEn._(_root);
 	@override late final _TranslationsRitualsDeleteEn delete = _TranslationsRitualsDeleteEn._(_root);
+	@override late final _TranslationsRitualsLibraryEn library = _TranslationsRitualsLibraryEn._(_root);
 }
 
 // Path: routines
@@ -161,6 +162,20 @@ class _TranslationsRitualsDeleteEn implements TranslationsRitualsDeleteDe {
 
 	// Translations
 	@override String get confirm_title => 'Delete ritual?';
+}
+
+// Path: rituals.library
+class _TranslationsRitualsLibraryEn implements TranslationsRitualsLibraryDe {
+	_TranslationsRitualsLibraryEn._(this._root);
+
+	final TranslationsEn _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Ritual Library';
+	@override String get search_hint => 'Search rituals...';
+	@override String get manage => 'Manage Rituals';
+	@override String get add_to_routine => 'Add to Routine';
+	@override String get confirm_delete => 'This ritual will be removed from all routines. Delete permanently?';
 }
 
 // Path: routines.form
@@ -213,6 +228,11 @@ extension on TranslationsEn {
 			'rituals.form.duration_label' => ({required Object min}) => 'Duration: ${min} min.',
 			'rituals.form.save_button' => 'Save',
 			'rituals.delete.confirm_title' => 'Delete ritual?',
+			'rituals.library.title' => 'Ritual Library',
+			'rituals.library.search_hint' => 'Search rituals...',
+			'rituals.library.manage' => 'Manage Rituals',
+			'rituals.library.add_to_routine' => 'Add to Routine',
+			'rituals.library.confirm_delete' => 'This ritual will be removed from all routines. Delete permanently?',
 			'routines.title' => 'Routines',
 			'routines.no_data' => 'No routines found.',
 			'routines.duration' => ({required Object minutes}) => 'Duration: ${minutes} min',

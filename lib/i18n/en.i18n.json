@@ -42,6 +42,13 @@
     },
     "delete": {
         "confirm_title": "Delete ritual?"
+    },
+    "library": {
+        "title": "Ritual Library",
+        "search_hint": "Search rituals...",
+        "manage": "Manage Rituals",
+        "add_to_routine": "Add to Routine",
+        "confirm_delete": "This ritual will be removed from all routines. Delete permanently?"
     }
   },
   "routines": {

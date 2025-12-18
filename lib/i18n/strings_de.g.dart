@@ -166,6 +166,7 @@ class TranslationsRitualsDe {
 
 	late final TranslationsRitualsFormDe form = TranslationsRitualsFormDe._(_root);
 	late final TranslationsRitualsDeleteDe delete = TranslationsRitualsDeleteDe._(_root);
+	late final TranslationsRitualsLibraryDe library = TranslationsRitualsLibraryDe._(_root);
 }
 
 // Path: routines
@@ -254,6 +255,30 @@ class TranslationsRitualsDeleteDe {
 	String get confirm_title => 'Ritual löschen?';
 }
 
+// Path: rituals.library
+class TranslationsRitualsLibraryDe {
+	TranslationsRitualsLibraryDe._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// de: 'Ritual Bibliothek'
+	String get title => 'Ritual Bibliothek';
+
+	/// de: 'Rituale suchen...'
+	String get search_hint => 'Rituale suchen...';
+
+	/// de: 'Rituale verwalten'
+	String get manage => 'Rituale verwalten';
+
+	/// de: 'Zur Routine hinzufügen'
+	String get add_to_routine => 'Zur Routine hinzufügen';
+
+	/// de: 'Dieses Ritual wird aus allen Routinen entfernt. Wirklich löschen?'
+	String get confirm_delete => 'Dieses Ritual wird aus allen Routinen entfernt. Wirklich löschen?';
+}
+
 // Path: routines.form
 class TranslationsRoutinesFormDe {
 	TranslationsRoutinesFormDe._(this._root);
@@ -308,6 +333,11 @@ extension on Translations {
 			'rituals.form.duration_label' => ({required Object min}) => 'Dauer: ${min} Min.',
 			'rituals.form.save_button' => 'Speichern',
 			'rituals.delete.confirm_title' => 'Ritual löschen?',
+			'rituals.library.title' => 'Ritual Bibliothek',
+			'rituals.library.search_hint' => 'Rituale suchen...',
+			'rituals.library.manage' => 'Rituale verwalten',
+			'rituals.library.add_to_routine' => 'Zur Routine hinzufügen',
+			'rituals.library.confirm_delete' => 'Dieses Ritual wird aus allen Routinen entfernt. Wirklich löschen?',
 			'routines.title' => 'Routinen',
 			'routines.no_data' => 'Keine Routinen gefunden.',
 			'routines.duration' => ({required Object minutes}) => 'Dauer: ${minutes} Min.',

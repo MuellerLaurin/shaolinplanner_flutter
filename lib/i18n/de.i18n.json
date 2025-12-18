@@ -42,6 +42,13 @@
     },
     "delete": {
         "confirm_title": "Ritual löschen?"
+    },
+    "library": {
+        "title": "Ritual Bibliothek",
+        "search_hint": "Rituale suchen...",
+        "manage": "Rituale verwalten",
+        "add_to_routine": "Zur Routine hinzufügen",
+        "confirm_delete": "Dieses Ritual wird aus allen Routinen entfernt. Wirklich löschen?"
     }
   },
   "routines": {

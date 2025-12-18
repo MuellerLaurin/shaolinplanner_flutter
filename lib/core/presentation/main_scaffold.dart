@@ -4,7 +4,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:shaolin_planner_new/core/providers/locale_provider.dart';
 import 'package:shaolin_planner_new/features/auth/providers/auth_provider.dart';
-import 'package:shaolin_planner_new/features/rituals/presentation/rituals_screen.dart';
 import 'package:shaolin_planner_new/features/routines/presentation/routines_screen.dart';
 import 'package:shaolin_planner_new/features/settings/presentation/settings_screen.dart';
 import 'package:shaolin_planner_new/i18n/strings.g.dart';
@@ -39,11 +38,6 @@ class _MainScaffoldState extends ConsumerState<MainScaffold> {
           label: t.nav.dashboard,
         ),
         NavigationDestination(
-          icon: Icon(Icons.self_improvement_outlined), // Rituals icon
-          selectedIcon: Icon(Icons.self_improvement),
-          label: t.nav.rituals,
-        ),
-        NavigationDestination(
           icon: Icon(Icons.playlist_play_outlined),
           selectedIcon: Icon(Icons.playlist_play),
           label: t.nav.routines,
@@ -63,10 +57,8 @@ class _MainScaffoldState extends ConsumerState<MainScaffold> {
       case 0:
         return _DashboardPage();
       case 1:
-        return const RitualsScreen();
-      case 2:
         return const RoutinesScreen();
-      case 3:
+      case 2:
         return const SettingsScreen();
       default:
         return const SizedBox.shrink();
