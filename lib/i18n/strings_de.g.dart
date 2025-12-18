@@ -196,6 +196,23 @@ class TranslationsRoutinesDe {
 
 	/// de: 'Ritual entfernen?'
 	String get confirm_delete_ritual => 'Ritual entfernen?';
+
+	/// de: 'Neue Routine'
+	String get add_title => 'Neue Routine';
+
+	/// de: 'Erstellen'
+	String get create_button => 'Erstellen';
+
+	late final TranslationsRoutinesFormDe form = TranslationsRoutinesFormDe._(_root);
+
+	/// de: 'Routine löschen?'
+	String get delete_title => 'Routine löschen?';
+
+	/// de: 'Möchtest du diese Routine wirklich unwiderruflich löschen? Alle Verknüpfungen zu Ritualen werden dabei entfernt.'
+	String get delete_confirmation => 'Möchtest du diese Routine wirklich unwiderruflich löschen? Alle Verknüpfungen zu Ritualen werden dabei entfernt.';
+
+	/// de: 'Routine gelöscht.'
+	String get delete_success => 'Routine gelöscht.';
 }
 
 // Path: rituals.form
@@ -235,6 +252,21 @@ class TranslationsRitualsDeleteDe {
 
 	/// de: 'Ritual löschen?'
 	String get confirm_title => 'Ritual löschen?';
+}
+
+// Path: routines.form
+class TranslationsRoutinesFormDe {
+	TranslationsRoutinesFormDe._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// de: 'Titel'
+	String get title_label => 'Titel';
+
+	/// de: 'Beschreibung'
+	String get description_label => 'Beschreibung';
 }
 
 /// The flat map containing all translations for locale <de>.
@@ -283,6 +315,13 @@ extension on Translations {
 			'routines.save' => 'Änderungen speichern',
 			'routines.add_ritual' => 'Ritual hinzufügen',
 			'routines.confirm_delete_ritual' => 'Ritual entfernen?',
+			'routines.add_title' => 'Neue Routine',
+			'routines.create_button' => 'Erstellen',
+			'routines.form.title_label' => 'Titel',
+			'routines.form.description_label' => 'Beschreibung',
+			'routines.delete_title' => 'Routine löschen?',
+			'routines.delete_confirmation' => 'Möchtest du diese Routine wirklich unwiderruflich löschen? Alle Verknüpfungen zu Ritualen werden dabei entfernt.',
+			'routines.delete_success' => 'Routine gelöscht.',
 			_ => null,
 		};
 	}

@@ -51,6 +51,15 @@
     "edit": "Routine bearbeiten",
     "save": "Änderungen speichern",
     "add_ritual": "Ritual hinzufügen",
-    "confirm_delete_ritual": "Ritual entfernen?"
+    "confirm_delete_ritual": "Ritual entfernen?",
+    "add_title": "Neue Routine",
+    "create_button": "Erstellen",
+    "form": {
+      "title_label": "Titel",
+      "description_label": "Beschreibung"
+    },
+    "delete_title": "Routine löschen?",
+    "delete_confirmation": "Möchtest du diese Routine wirklich unwiderruflich löschen? Alle Verknüpfungen zu Ritualen werden dabei entfernt.",
+    "delete_success": "Routine gelöscht."
   }
 }

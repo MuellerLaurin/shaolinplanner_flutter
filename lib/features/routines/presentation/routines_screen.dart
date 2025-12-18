@@ -16,7 +16,15 @@ class RoutinesScreen extends ConsumerWidget {
     final routinesAsync = ref.watch(routineProvider);
 
     return Scaffold(
-      appBar: AppBar(title: Text(t.routines.title)),
+      appBar: AppBar(
+        title: Text(t.routines.title),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.add),
+            onPressed: () => _showCreateRoutineDialog(context, ref),
+          ),
+        ],
+      ),
       body: routinesAsync.when(
         data: (routines) {
           if (routines.isEmpty) {
@@ -33,6 +41,60 @@ class RoutinesScreen extends ConsumerWidget {
         },
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (e, st) => Center(child: Text('Error: $e')),
+      ),
+    );
+  }
+
+  Future<void> _showCreateRoutineDialog(
+    BuildContext context,
+    WidgetRef ref,
+  ) async {
+    final titleController = TextEditingController();
+    final descriptionController = TextEditingController();
+
+    await showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(t.routines.add_title),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            TextField(
+              controller: titleController,
+              decoration: InputDecoration(
+                labelText: t.routines.form.title_label,
+              ),
+            ),
+            TextField(
+              controller: descriptionController,
+              decoration: InputDecoration(
+                labelText: t.routines.form.description_label,
+              ),
+            ),
+          ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: Text(t.common.cancel),
+          ),
+          FilledButton(
+            onPressed: () async {
+              if (titleController.text.isNotEmpty) {
+                await ref
+                    .read(routineProvider.notifier)
+                    .createRoutine(
+                      titleController.text,
+                      descriptionController.text,
+                    );
+                if (context.mounted) {
+                  Navigator.pop(context);
+                }
+              }
+            },
+            child: Text(t.routines.create_button),
+          ),
+        ],
       ),
     );
   }
@@ -137,7 +199,7 @@ class _RoutineCardState extends ConsumerState<_RoutineCard> {
             radius: 12,
             backgroundColor: Theme.of(context).colorScheme.primary,
             child: Text(
-              "${rr.orderNr}",
+              "${rr.orderNr + 1}",
               style: TextStyle(
                 fontSize: 12,
                 color: Theme.of(context).colorScheme.onPrimary,
@@ -205,14 +267,67 @@ class _RoutineCardState extends ConsumerState<_RoutineCard> {
         ),
         Padding(
           padding: const EdgeInsets.all(16.0),
-          child: ElevatedButton.icon(
-            onPressed: () => _addRitual(context, ref, routineId),
-            icon: const Icon(Icons.add),
-            label: Text(t.routines.add_ritual),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              TextButton.icon(
+                onPressed: () => _showDeleteConfirmation(context, ref),
+                icon: Icon(
+                  Icons.delete_outline,
+                  color: Theme.of(context).colorScheme.error,
+                ),
+                label: Text(
+                  t.common.delete,
+                  style: TextStyle(color: Theme.of(context).colorScheme.error),
+                ),
+              ),
+              ElevatedButton.icon(
+                onPressed: () => _addRitual(context, ref, routineId),
+                icon: const Icon(Icons.add),
+                label: Text(t.routines.add_ritual),
+              ),
+            ],
           ),
         ),
       ],
     );
+  }
+
+  Future<void> _showDeleteConfirmation(
+    BuildContext context,
+    WidgetRef ref,
+  ) async {
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(t.routines.delete_title),
+        content: Text(t.routines.delete_confirmation),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context, false),
+            child: Text(t.common.cancel),
+          ),
+          TextButton(
+            onPressed: () => Navigator.pop(context, true),
+            style: TextButton.styleFrom(
+              foregroundColor: Theme.of(context).colorScheme.error,
+            ),
+            child: Text(t.common.delete),
+          ),
+        ],
+      ),
+    );
+
+    if (confirmed == true) {
+      final scaffoldMessenger = ScaffoldMessenger.of(context);
+      await ref.read(routineProvider.notifier).deleteRoutine(widget.routine.id);
+
+      if (context.mounted) {
+        scaffoldMessenger.showSnackBar(
+          SnackBar(content: Text(t.routines.delete_success)),
+        );
+      }
+    }
   }
 
   Future<void> _addRitual(

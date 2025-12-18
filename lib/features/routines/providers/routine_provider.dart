@@ -154,4 +154,17 @@ class RoutineNotifier extends _$RoutineNotifier {
       throw e;
     }
   }
+
+  Future<void> createRoutine(String title, String description) async {
+    await ref
+        .read(routineRepositoryProvider)
+        .createRoutine(title: title, description: description);
+    // Refresh to show the new routine
+    await refresh();
+  }
+
+  Future<void> deleteRoutine(String routineId) async {
+    await ref.read(routineRepositoryProvider).deleteRoutine(routineId);
+    await refresh();
+  }
 }

@@ -51,6 +51,15 @@
     "edit": "Edit Routine",
     "save": "Save Changes",
     "add_ritual": "Add Ritual",
-    "confirm_delete_ritual": "Remove ritual?"
+    "confirm_delete_ritual": "Remove ritual?",
+    "add_title": "New Routine",
+    "create_button": "Create",
+    "form": {
+      "title_label": "Title",
+      "description_label": "Description"
+    },
+    "delete_title": "Delete Routine?",
+    "delete_confirmation": "Do you really want to delete this routine permanently? all ritual links will be removed.",
+    "delete_success": "Routine deleted."
   }
 }

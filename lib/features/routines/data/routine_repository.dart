@@ -85,4 +85,29 @@ class RoutineRepository {
         .eq('routine_id', routineId)
         .eq('ritual_id', ritualId);
   }
+
+  Future<void> createRoutine({
+    required String title,
+    required String description,
+  }) async {
+    final userId = _supabase.auth.currentUser?.id;
+    if (userId == null) throw Exception('User not logged in');
+
+    await _supabase.from('routines').insert({
+      'user_id': userId,
+      'title': title,
+      'description': description,
+    });
+  }
+
+  Future<void> deleteRoutine(String routineId) async {
+    final userId = _supabase.auth.currentUser?.id;
+    if (userId == null) throw Exception('User not logged in');
+
+    await _supabase
+        .from('routines')
+        .delete()
+        .eq('routine_id', routineId)
+        .eq('user_id', userId); // Extra safety check
+  }
 }

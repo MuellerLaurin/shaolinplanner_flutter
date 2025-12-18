@@ -130,6 +130,12 @@ class _TranslationsRoutinesEn implements TranslationsRoutinesDe {
 	@override String get save => 'Save Changes';
 	@override String get add_ritual => 'Add Ritual';
 	@override String get confirm_delete_ritual => 'Remove ritual?';
+	@override String get add_title => 'New Routine';
+	@override String get create_button => 'Create';
+	@override late final _TranslationsRoutinesFormEn form = _TranslationsRoutinesFormEn._(_root);
+	@override String get delete_title => 'Delete Routine?';
+	@override String get delete_confirmation => 'Do you really want to delete this routine permanently? all ritual links will be removed.';
+	@override String get delete_success => 'Routine deleted.';
 }
 
 // Path: rituals.form
@@ -155,6 +161,17 @@ class _TranslationsRitualsDeleteEn implements TranslationsRitualsDeleteDe {
 
 	// Translations
 	@override String get confirm_title => 'Delete ritual?';
+}
+
+// Path: routines.form
+class _TranslationsRoutinesFormEn implements TranslationsRoutinesFormDe {
+	_TranslationsRoutinesFormEn._(this._root);
+
+	final TranslationsEn _root; // ignore: unused_field
+
+	// Translations
+	@override String get title_label => 'Title';
+	@override String get description_label => 'Description';
 }
 
 /// The flat map containing all translations for locale <en>.
@@ -203,6 +220,13 @@ extension on TranslationsEn {
 			'routines.save' => 'Save Changes',
 			'routines.add_ritual' => 'Add Ritual',
 			'routines.confirm_delete_ritual' => 'Remove ritual?',
+			'routines.add_title' => 'New Routine',
+			'routines.create_button' => 'Create',
+			'routines.form.title_label' => 'Title',
+			'routines.form.description_label' => 'Description',
+			'routines.delete_title' => 'Delete Routine?',
+			'routines.delete_confirmation' => 'Do you really want to delete this routine permanently? all ritual links will be removed.',
+			'routines.delete_success' => 'Routine deleted.',
 			_ => null,
 		};
 	}
