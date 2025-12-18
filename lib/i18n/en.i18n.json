@@ -47,6 +47,10 @@
   "routines": {
     "title": "Routines",
     "no_data": "No routines found.",
-    "duration": "Duration: $minutes min"
+    "duration": "Duration: $minutes min",
+    "edit": "Edit Routine",
+    "save": "Save Changes",
+    "add_ritual": "Add Ritual",
+    "confirm_delete_ritual": "Remove ritual?"
   }
 }

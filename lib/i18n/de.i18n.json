@@ -47,6 +47,10 @@
   "routines": {
     "title": "Routinen",
     "no_data": "Keine Routinen gefunden.",
-    "duration": "Dauer: $minutes Min."
+    "duration": "Dauer: $minutes Min.",
+    "edit": "Routine bearbeiten",
+    "save": "Änderungen speichern",
+    "add_ritual": "Ritual hinzufügen",
+    "confirm_delete_ritual": "Ritual entfernen?"
   }
 }

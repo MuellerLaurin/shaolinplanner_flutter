@@ -184,6 +184,18 @@ class TranslationsRoutinesDe {
 
 	/// de: 'Dauer: $minutes Min.'
 	String duration({required Object minutes}) => 'Dauer: ${minutes} Min.';
+
+	/// de: 'Routine bearbeiten'
+	String get edit => 'Routine bearbeiten';
+
+	/// de: 'Änderungen speichern'
+	String get save => 'Änderungen speichern';
+
+	/// de: 'Ritual hinzufügen'
+	String get add_ritual => 'Ritual hinzufügen';
+
+	/// de: 'Ritual entfernen?'
+	String get confirm_delete_ritual => 'Ritual entfernen?';
 }
 
 // Path: rituals.form
@@ -267,6 +279,10 @@ extension on Translations {
 			'routines.title' => 'Routinen',
 			'routines.no_data' => 'Keine Routinen gefunden.',
 			'routines.duration' => ({required Object minutes}) => 'Dauer: ${minutes} Min.',
+			'routines.edit' => 'Routine bearbeiten',
+			'routines.save' => 'Änderungen speichern',
+			'routines.add_ritual' => 'Ritual hinzufügen',
+			'routines.confirm_delete_ritual' => 'Ritual entfernen?',
 			_ => null,
 		};
 	}

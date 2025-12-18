@@ -126,6 +126,10 @@ class _TranslationsRoutinesEn implements TranslationsRoutinesDe {
 	@override String get title => 'Routines';
 	@override String get no_data => 'No routines found.';
 	@override String duration({required Object minutes}) => 'Duration: ${minutes} min';
+	@override String get edit => 'Edit Routine';
+	@override String get save => 'Save Changes';
+	@override String get add_ritual => 'Add Ritual';
+	@override String get confirm_delete_ritual => 'Remove ritual?';
 }
 
 // Path: rituals.form
@@ -195,6 +199,10 @@ extension on TranslationsEn {
 			'routines.title' => 'Routines',
 			'routines.no_data' => 'No routines found.',
 			'routines.duration' => ({required Object minutes}) => 'Duration: ${minutes} min',
+			'routines.edit' => 'Edit Routine',
+			'routines.save' => 'Save Changes',
+			'routines.add_ritual' => 'Add Ritual',
+			'routines.confirm_delete_ritual' => 'Remove ritual?',
 			_ => null,
 		};
 	}
