@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'routine_provider.dart';
+part of 'settings_notifier.dart';
 
 // **************************************************************************
 // RiverpodGenerator
@@ -9,44 +9,44 @@ part of 'routine_provider.dart';
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
 
-@ProviderFor(RoutineNotifier)
-const routineProvider = RoutineNotifierProvider._();
+@ProviderFor(SettingsNotifier)
+const settingsProvider = SettingsNotifierProvider._();
 
-final class RoutineNotifierProvider
-    extends $AsyncNotifierProvider<RoutineNotifier, List<Routine>> {
-  const RoutineNotifierProvider._()
+final class SettingsNotifierProvider
+    extends $AsyncNotifierProvider<SettingsNotifier, Settings> {
+  const SettingsNotifierProvider._()
     : super(
         from: null,
         argument: null,
         retry: null,
-        name: r'routineProvider',
+        name: r'settingsProvider',
         isAutoDispose: true,
         dependencies: null,
         $allTransitiveDependencies: null,
       );
 
   @override
-  String debugGetCreateSourceHash() => _$routineNotifierHash();
+  String debugGetCreateSourceHash() => _$settingsNotifierHash();
 
   @$internal
   @override
-  RoutineNotifier create() => RoutineNotifier();
+  SettingsNotifier create() => SettingsNotifier();
 }
 
-String _$routineNotifierHash() => r'a565d1b4d4f1b3787ace719f9f034ac510cb5936';
+String _$settingsNotifierHash() => r'b8dc91caef7825c9e70311017413eaf15449466b';
 
-abstract class _$RoutineNotifier extends $AsyncNotifier<List<Routine>> {
-  FutureOr<List<Routine>> build();
+abstract class _$SettingsNotifier extends $AsyncNotifier<Settings> {
+  FutureOr<Settings> build();
   @$mustCallSuper
   @override
   void runBuild() {
     final created = build();
-    final ref = this.ref as $Ref<AsyncValue<List<Routine>>, List<Routine>>;
+    final ref = this.ref as $Ref<AsyncValue<Settings>, Settings>;
     final element =
         ref.element
             as $ClassProviderElement<
-              AnyNotifier<AsyncValue<List<Routine>>, List<Routine>>,
-              AsyncValue<List<Routine>>,
+              AnyNotifier<AsyncValue<Settings>, Settings>,
+              AsyncValue<Settings>,
               Object?,
               Object?
             >;
